@@ -39,12 +39,31 @@
   color: var(--text-secondary);
   padding: 8px 14px;
   border-radius: 8px;
-  transition: color 0.2s, background 0.2s;
+  transition: color 0.2s, background 0.2s, box-shadow 0.2s, border-color 0.2s;
+  border: 1px solid transparent;
 }
 
 .navbar__links a:hover {
   color: var(--text-primary);
   background: var(--bg-alt);
+}
+
+.navbar__links a.navbar__link--active {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+[data-theme="light"] .navbar__links a.navbar__link--active {
+  background: #EAF0F7;
+  border-color: #D2DDE8;
+  box-shadow: inset 0 -2px 0 #95A4B5;
+}
+
+[data-theme="dark"] .navbar__links a.navbar__link--active {
+  background: #1C2736;
+  border-color: #2B3A4D;
+  box-shadow: inset 0 -2px 0 #95A4B5;
+  color: #F8F6F2;
 }
 
 .navbar__cta {
@@ -64,23 +83,78 @@
 .navbar__right {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 }
 
-.theme-toggle {
-  display: flex;
+.theme-switch {
+  width: 82px;
+  height: 38px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #111927 0%, #1A2536 100%);
+  border: 1px solid var(--border-color);
+  position: relative;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  color: var(--text-secondary);
-  transition: color 0.2s, background 0.2s;
+  padding: 0 12px;
+  transition: background 0.25s ease, border-color 0.25s ease;
 }
 
-.theme-toggle:hover {
-  color: var(--text-primary);
-  background: var(--bg-alt);
+.theme-switch--light {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--hover) 100%);
+  border-color: #A8B8C9;
+}
+
+.theme-switch__state {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #F8F6F2;
+  z-index: 1;
+  user-select: none;
+  pointer-events: none;
+}
+
+.theme-switch__state--on {
+  right: 12px;
+}
+
+.theme-switch__state--off {
+  left: 12px;
+}
+
+.theme-switch--light .theme-switch__state {
+  color: #0B0F14;
+}
+
+.theme-switch__thumb {
+  position: absolute;
+  left: 4px;
+  top: 4px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  transform: translateX(0);
+  transition: transform 0.25s ease;
+}
+
+.theme-switch--light .theme-switch__thumb {
+  transform: translateX(46px);
+}
+
+@media (max-width: 520px) {
+  .theme-switch__state--on {
+    right: 10px;
+  }
+
+  .theme-switch__state--off {
+    left: 10px;
+  }
 }
 
 .hamburger {
@@ -98,7 +172,7 @@
   background: var(--bg-alt);
 }
 
-@media (max-width: 860px) {
+@media (max-width: 980px) {
   .hamburger { display: flex; }
 
   .navbar__links {
