@@ -46,3 +46,35 @@ Implementar **JSON-LD** para definir explícitamente el contexto del contenido.
 * [Google Search Central](https://developers.google.com/search)
 * [Schema.org Vocabulary](https://schema.org)
 * [Web Vitals Guide](https://web.dev/vitals/)
+
+---
+
+## 5. Capa de Metadatos y Visibilidad Social
+Para maximizar la tasa de clics (CTR) y la interpretación de la IA:
+* **Etiquetas Open Graph:** Implementar `<meta property="og:title">`, `og:description` y `og:image` en el `<head>`.
+* **Favicons y Manifest:** Asegurar un archivo `manifest.json` y favicons en múltiples resoluciones para mejorar la identidad visual en dispositivos móviles.
+
+## 6. Configuración de Rastreo (Crawling)
+* **Sitemap dinámico:** Generar `sitemap.xml` para asegurar que todas las rutas (incluyendo dinámicas) sean descubiertas.
+* **Optimización de Robots.txt:** Configurar directivas `Disallow` para rutas privadas, APIs y entornos de staging.
+* **Canonical Tags:** Usar `rel="canonical"` para evitar penalizaciones por contenido duplicado.
+
+## 7. SEO Local y Autoridad de Marca
+* **Geo-Tagging:** Incluir metadatos de ubicación si el mercado objetivo es regional (ej. Guatemala).
+* **Menciones de Marca:** Fomentar la presencia en foros y comunidades (Reddit, StackOverflow) para que la IA asocie la marca con soluciones específicas en su nicho.
+
+## 8. UX & Accesibilidad (A11y)
+* **Atributos Alt:** Obligatorios en todas las imágenes para indexación en Google Images.
+* **Semántica HTML5:** Uso de `<main>`, `<article>`, `<section>` y `<footer>` para facilitar el "scrapping" de la IA.
+
+---
+
+## 9. Estándares de Datos Estructurados (JSON-LD)
+Para asegurar que la IA de Google identifique correctamente el software, se debe mantener el siguiente esquema en el `<head>` de la página principal:
+
+### Esquema de Aplicación (SoftwareApplication)
+* **Objetivo:** Definir la naturaleza del software, precio y categoría.
+* **Ubicación:** `index.html` o componente de SEO dinámico.
+* **Campos Requeridos:** `name`, `applicationCategory`, `operatingSystem`.
+
+> **Nota:** Cada vez que se agregue una funcionalidad principal, actualizar el JSON-LD para incluir `featureList` y mejorar la interpretación de los modelos de lenguaje (GEO).
