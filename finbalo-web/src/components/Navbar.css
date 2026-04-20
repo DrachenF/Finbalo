@@ -106,12 +106,24 @@
 }
 
 .theme-switch__state {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 0.08em;
   color: #F8F6F2;
   z-index: 1;
   user-select: none;
+  pointer-events: none;
+}
+
+.theme-switch__state--on {
+  right: 12px;
+}
+
+.theme-switch__state--off {
+  left: 12px;
 }
 
 .theme-switch--light .theme-switch__state {
@@ -133,6 +145,16 @@
 
 .theme-switch--light .theme-switch__thumb {
   transform: translateX(46px);
+}
+
+@media (max-width: 520px) {
+  .theme-switch__state--on {
+    right: 10px;
+  }
+
+  .theme-switch__state--off {
+    left: 10px;
+  }
 }
 
 .hamburger {

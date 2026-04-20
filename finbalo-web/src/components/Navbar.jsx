@@ -127,7 +127,10 @@ export default function Navbar({ theme, toggleTheme }) {
             aria-label="Activar o desactivar modo oscuro"
             title={theme === 'dark' ? 'Modo oscuro ON' : 'Modo oscuro OFF'}
           >
-            <span className="theme-switch__state" aria-hidden="true">
+            <span
+              className={`theme-switch__state ${theme === 'dark' ? 'theme-switch__state--on' : 'theme-switch__state--off'}`}
+              aria-hidden="true"
+            >
               {theme === 'dark' ? 'ON' : 'OFF'}
             </span>
             <span className="theme-switch__thumb" aria-hidden="true" />
