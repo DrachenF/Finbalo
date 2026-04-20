@@ -5,26 +5,84 @@ import './Navbar.css';
 
 const links = [
   { label: 'Servicios', href: '#servicios' },
-  { label: 'Nosotros', href: '#nosotros' },
   { label: 'Proceso', href: '#proceso' },
+  { label: 'Tecnologías', href: '#tecnologias' },
   { label: 'FAQ', href: '#faq' },
   { label: 'Contacto', href: '#contacto' },
 ];
 
+const sectionIds = links.map(link => link.href.slice(1));
+
 export default function Navbar({ theme, toggleTheme }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 24);
+      if (window.scrollY < 40 && window.location.hash === '') {
+        setActiveSection('');
+      }
+    };
+
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  useEffect(() => {
+    const setFromHash = () => {
+      const id = window.location.hash.replace('#', '');
+      if (sectionIds.includes(id)) {
+        setActiveSection(id);
+      } else {
+        setActiveSection('');
+      }
+    };
+
+    setFromHash();
+
+    const observer = new IntersectionObserver(
+      entries => {
+        const visibleEntries = entries
+          .filter(entry => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+        if (visibleEntries.length > 0) {
+          setActiveSection(visibleEntries[0].target.id);
+        }
+      },
+      {
+        root: null,
+        rootMargin: '-20% 0px -58% 0px',
+        threshold: [0.2, 0.4, 0.6],
+      }
+    );
+
+    sectionIds.forEach(id => {
+      const section = document.getElementById(id);
+      if (section) observer.observe(section);
+    });
+
+    window.addEventListener('hashchange', setFromHash);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('hashchange', setFromHash);
+    };
   }, []);
 
   return (
     <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
       <div className="navbar__inner section-wrap">
-        <a href="#" className="navbar__logo">
+        <a
+          href="#"
+          className="navbar__logo"
+          onClick={() => {
+            setActiveSection('');
+            setMenuOpen(false);
+          }}
+        >
           <img
             src={theme === 'dark' ? logoDark : logoLight}
             alt="Finbalo"
@@ -33,11 +91,26 @@ export default function Navbar({ theme, toggleTheme }) {
         </a>
 
         <ul className={`navbar__links ${menuOpen ? 'navbar__links--open' : ''}`}>
-          {links.map(l => (
-            <li key={l.href}>
-              <a href={l.href} onClick={() => setMenuOpen(false)}>{l.label}</a>
-            </li>
-          ))}
+          {links.map(l => {
+            const id = l.href.slice(1);
+            const isActive = activeSection === id;
+
+            return (
+              <li key={l.href}>
+                <a
+                  href={l.href}
+                  className={isActive ? 'navbar__link--active' : ''}
+                  aria-current={isActive ? 'location' : undefined}
+                  onClick={() => {
+                    setMenuOpen(false);
+                    setActiveSection(id);
+                  }}
+                >
+                  {l.label}
+                </a>
+              </li>
+            );
+          })}
           <li>
             <a href="#contacto" className="navbar__cta" onClick={() => setMenuOpen(false)}>
               Hablemos
@@ -47,20 +120,17 @@ export default function Navbar({ theme, toggleTheme }) {
 
         <div className="navbar__right">
           <button
-            className="theme-toggle"
+            className={`theme-switch ${theme === 'light' ? 'theme-switch--light' : ''}`}
             onClick={toggleTheme}
-            aria-label="Cambiar tema"
+            role="switch"
+            aria-checked={theme === 'dark'}
+            aria-label="Activar o desactivar modo oscuro"
+            title={theme === 'dark' ? 'Modo oscuro ON' : 'Modo oscuro OFF'}
           >
-            {theme === 'dark' ? (
-              <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                <circle cx="12" cy="12" r="5"/>
-                <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
-              </svg>
-            ) : (
-              <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-              </svg>
-            )}
+            <span className="theme-switch__state" aria-hidden="true">
+              {theme === 'dark' ? 'ON' : 'OFF'}
+            </span>
+            <span className="theme-switch__thumb" aria-hidden="true" />
           </button>
 
           <button
