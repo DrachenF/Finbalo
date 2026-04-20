@@ -1,4 +1,3 @@
-import logoLight from '../assets/Logo_Principal.svg';
 import logoDark from '../assets/Logo_Invertido.svg';
 import './Footer.css';
 
@@ -6,21 +5,21 @@ const year = new Date().getFullYear();
 
 const nav = [
   { label: 'Servicios', href: '#servicios' },
-  { label: 'Nosotros', href: '#nosotros' },
-  { label: 'Misión & Visión', href: '#mision' },
-  { label: 'Valores', href: '#valores' },
+  { label: 'Problemas', href: '#problemas' },
+  { label: 'Demos', href: '#demos' },
   { label: 'Proceso', href: '#proceso' },
+  { label: 'Tecnologías', href: '#tecnologias' },
   { label: 'Contacto', href: '#contacto' },
 ];
 
-export default function Footer({ theme }) {
+export default function Footer() {
   return (
     <footer className="footer">
       <div className="section-wrap footer__inner">
         <div className="footer__brand">
           <a href="#" className="footer__logo">
             <img
-              src={theme === 'dark' ? logoDark : logoLight}
+              src={logoDark}
               alt="Finbalo"
               height="28"
             />

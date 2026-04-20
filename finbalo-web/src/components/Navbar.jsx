@@ -5,20 +5,61 @@ import './Navbar.css';
 
 const links = [
   { label: 'Servicios', href: '#servicios' },
-  { label: 'Nosotros', href: '#nosotros' },
   { label: 'Proceso', href: '#proceso' },
+  { label: 'Tecnologías', href: '#tecnologias' },
   { label: 'FAQ', href: '#faq' },
   { label: 'Contacto', href: '#contacto' },
 ];
 
+const sectionIds = links.map(link => link.href.slice(1));
+
 export default function Navbar({ theme, toggleTheme }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  useEffect(() => {
+    const setFromHash = () => {
+      const id = window.location.hash.replace('#', '');
+      if (sectionIds.includes(id)) setActiveSection(id);
+    };
+
+    setFromHash();
+
+    const observer = new IntersectionObserver(
+      entries => {
+        const visibleEntries = entries
+          .filter(entry => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+        if (visibleEntries.length > 0) {
+          setActiveSection(visibleEntries[0].target.id);
+        }
+      },
+      {
+        root: null,
+        rootMargin: '-22% 0px -58% 0px',
+        threshold: [0.2, 0.35, 0.55],
+      }
+    );
+
+    sectionIds.forEach(id => {
+      const section = document.getElementById(id);
+      if (section) observer.observe(section);
+    });
+
+    window.addEventListener('hashchange', setFromHash);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('hashchange', setFromHash);
+    };
   }, []);
 
   return (
@@ -33,11 +74,26 @@ export default function Navbar({ theme, toggleTheme }) {
         </a>
 
         <ul className={`navbar__links ${menuOpen ? 'navbar__links--open' : ''}`}>
-          {links.map(l => (
-            <li key={l.href}>
-              <a href={l.href} onClick={() => setMenuOpen(false)}>{l.label}</a>
-            </li>
-          ))}
+          {links.map(l => {
+            const id = l.href.slice(1);
+            const isActive = activeSection === id;
+
+            return (
+              <li key={l.href}>
+                <a
+                  href={l.href}
+                  className={isActive ? 'navbar__link--active' : ''}
+                  aria-current={isActive ? 'location' : undefined}
+                  onClick={() => {
+                    setMenuOpen(false);
+                    setActiveSection(id);
+                  }}
+                >
+                  {l.label}
+                </a>
+              </li>
+            );
+          })}
           <li>
             <a href="#contacto" className="navbar__cta" onClick={() => setMenuOpen(false)}>
               Hablemos
@@ -47,20 +103,16 @@ export default function Navbar({ theme, toggleTheme }) {
 
         <div className="navbar__right">
           <button
-            className="theme-toggle"
+            className={`theme-switch ${theme === 'light' ? 'theme-switch--light' : ''}`}
             onClick={toggleTheme}
-            aria-label="Cambiar tema"
+            role="switch"
+            aria-checked={theme === 'light'}
+            aria-label="Cambiar entre modo oscuro y claro"
+            title={theme === 'dark' ? 'Activar modo claro' : 'Activar modo oscuro'}
           >
-            {theme === 'dark' ? (
-              <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                <circle cx="12" cy="12" r="5"/>
-                <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
-              </svg>
-            ) : (
-              <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-              </svg>
-            )}
+            <span className="theme-switch__icon theme-switch__icon--moon" aria-hidden="true">🌙</span>
+            <span className="theme-switch__icon theme-switch__icon--sun" aria-hidden="true">☀️</span>
+            <span className="theme-switch__thumb" aria-hidden="true" />
           </button>
 
           <button

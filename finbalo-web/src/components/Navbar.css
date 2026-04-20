@@ -39,12 +39,19 @@
   color: var(--text-secondary);
   padding: 8px 14px;
   border-radius: 8px;
-  transition: color 0.2s, background 0.2s;
+  transition: color 0.2s, background 0.2s, box-shadow 0.2s;
 }
 
 .navbar__links a:hover {
   color: var(--text-primary);
   background: var(--bg-alt);
+}
+
+.navbar__links a.navbar__link--active {
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--bg-alt) 75%, transparent);
+  box-shadow: inset 0 -2px 0 color-mix(in srgb, var(--text-primary) 35%, transparent);
+  font-weight: 700;
 }
 
 .navbar__cta {
@@ -64,23 +71,58 @@
 .navbar__right {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 }
 
-.theme-toggle {
-  display: flex;
+.theme-switch {
+  width: 78px;
+  height: 38px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #111927 0%, #1A2536 100%);
+  border: 1px solid var(--border-color);
+  position: relative;
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  color: var(--text-secondary);
-  transition: color 0.2s, background 0.2s;
+  justify-content: space-between;
+  padding: 0 8px;
+  transition: background 0.25s ease, border-color 0.25s ease;
 }
 
-.theme-toggle:hover {
-  color: var(--text-primary);
-  background: var(--bg-alt);
+.theme-switch--light {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--hover) 100%);
+  border-color: color-mix(in srgb, var(--hover) 65%, white);
+}
+
+.theme-switch__icon {
+  font-size: 12px;
+  line-height: 1;
+  opacity: 0.95;
+  z-index: 1;
+}
+
+.theme-switch__icon--moon {
+  transform: translateX(1px);
+}
+
+.theme-switch__icon--sun {
+  transform: translateX(-2px);
+}
+
+.theme-switch__thumb {
+  position: absolute;
+  left: 4px;
+  top: 4px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  transform: translateX(0);
+  transition: transform 0.25s ease;
+}
+
+.theme-switch--light .theme-switch__thumb {
+  transform: translateX(40px);
 }
 
 .hamburger {
@@ -98,7 +140,7 @@
   background: var(--bg-alt);
 }
 
-@media (max-width: 860px) {
+@media (max-width: 980px) {
   .hamburger { display: flex; }
 
   .navbar__links {
