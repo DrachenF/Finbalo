@@ -1,5 +1,5 @@
-import logoLight from '../assets/Logo_Principal.svg';
-import logoDark from '../assets/Logo_Invertido.svg';
+import logoLight from '../assets/Logo.svg';
+import logoDark from '../assets/Logo_Negativo.svg';
 import './Hero.css';
 
 export default function Hero({ theme }) {
@@ -26,12 +26,12 @@ export default function Hero({ theme }) {
 
           <div className="hero__actions">
             <a href="#contacto" className="btn-primary">
-              Empecemos juntos
+              Agendar reunión
               <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                 <path d="M5 12h14M12 5l7 7-7 7"/>
               </svg>
             </a>
-            <a href="#servicios" className="btn-secondary">Ver servicios</a>
+            <a href="#proceso" className="btn-secondary">Cómo trabajamos</a>
           </div>
 
           <div className="hero__stats">
