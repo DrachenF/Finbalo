@@ -1,0 +1,111 @@
+.about {
+  padding: 100px 0;
+  background: var(--bg);
+}
+
+.about__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.about__desc {
+  font-size: 16px;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin-bottom: 20px;
+}
+
+.about__pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 32px;
+}
+
+.about__pills span {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+  background: var(--bg-alt);
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  padding: 8px 16px;
+}
+
+.about__cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.about__card {
+  border-radius: 20px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.about__card h3 {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.about__card p {
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.about__card--dark {
+  background: var(--logo);
+  color: var(--warm);
+}
+
+[data-theme="dark"] .about__card--dark {
+  background: #F8F6F2;
+  color: #0B0F14;
+}
+
+.about__card--dark p { opacity: 0.75; }
+
+.about__card--light {
+  background: var(--bg-section);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+.about__card--light p { color: var(--text-secondary); }
+
+.about__card--accent {
+  background: var(--bg-alt);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+.about__card--accent p { color: var(--text-secondary); }
+
+.about__card--outline {
+  background: transparent;
+  border: 1.5px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+.about__card--outline p { color: var(--text-secondary); }
+
+.about__card__icon {
+  margin-bottom: 4px;
+}
+
+@media (max-width: 960px) {
+  .about__inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about__cards { grid-template-columns: 1fr; }
+  .about { padding: 72px 0; }
+}

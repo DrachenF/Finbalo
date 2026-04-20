@@ -1,0 +1,123 @@
+:root {
+  --logo: #0B0F14;
+  --warm: #F8F6F2;
+  --ivory: #F4F0EB;
+  --tech: #F1F5F9;
+  --white: #FFFFFF;
+  --text2: #5B6572;
+  --border: #DCE3EA;
+  --card: #FCFBF9;
+  --alt: #EEF2F6;
+  --accent: #C7D0DA;
+  --hover: #1A222C;
+
+  --bg: var(--warm);
+  --bg-card: var(--white);
+  --bg-alt: var(--alt);
+  --bg-section: var(--tech);
+  --text-primary: var(--logo);
+  --text-secondary: var(--text2);
+  --border-color: var(--border);
+}
+
+[data-theme="dark"] {
+  --bg: #0B0F14;
+  --bg-card: #151C25;
+  --bg-alt: #1A222C;
+  --bg-section: #101720;
+  --text-primary: #F8F6F2;
+  --text-secondary: #8A96A3;
+  --border-color: #2A3441;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  background-color: var(--bg);
+  color: var(--text-primary);
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; height: auto; display: block; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+.section-wrap {
+  width: min(1160px, 92vw);
+  margin: 0 auto;
+}
+
+.section-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+}
+
+.section-subtitle {
+  font-size: clamp(16px, 2vw, 19px);
+  color: var(--text-secondary);
+  max-width: 640px;
+  line-height: 1.65;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 700;
+  background: var(--text-primary);
+  color: var(--bg);
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.btn-primary:hover {
+  opacity: 0.82;
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 700;
+  background: transparent;
+  color: var(--text-primary);
+  border: 1.5px solid var(--border-color);
+  transition: border-color 0.2s, background 0.2s, transform 0.2s;
+}
+
+.btn-secondary:hover {
+  border-color: var(--text-primary);
+  background: var(--bg-alt);
+  transform: translateY(-1px);
+}

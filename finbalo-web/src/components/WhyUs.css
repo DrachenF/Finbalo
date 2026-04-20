@@ -1,0 +1,125 @@
+.whyus {
+  padding: 100px 0;
+  background: var(--bg-section);
+}
+
+.whyus__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.whyus__compare {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 40px;
+}
+
+.whyus__compare-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 18px 20px;
+  border-radius: 14px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+}
+
+.whyus__compare-row--active {
+  background: var(--logo);
+  border-color: transparent;
+  color: #F8F6F2;
+}
+
+[data-theme="dark"] .whyus__compare-row--active {
+  background: #F8F6F2;
+  color: #0B0F14;
+}
+
+.whyus__compare-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.whyus__compare-row--active .whyus__compare-icon {
+  background: rgba(248,246,242,0.15);
+  color: #F8F6F2;
+}
+
+[data-theme="dark"] .whyus__compare-row--active .whyus__compare-icon {
+  background: rgba(11,15,20,0.1);
+  color: #0B0F14;
+}
+
+.whyus__compare-row:not(.whyus__compare-row--active) .whyus__compare-icon {
+  background: var(--bg-alt);
+  color: var(--text-secondary);
+}
+
+.whyus__compare-row div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.whyus__compare-row strong {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.whyus__compare-row span {
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+.whyus__perks-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 28px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.whyus__perks-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.whyus__perks-card ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.whyus__perks-card li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.whyus__perks-card li svg {
+  color: var(--text-primary);
+  flex-shrink: 0;
+}
+
+@media (max-width: 960px) {
+  .whyus__inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .whyus { padding: 72px 0; }
+}

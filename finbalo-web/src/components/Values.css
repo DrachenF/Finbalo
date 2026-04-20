@@ -1,0 +1,69 @@
+.values {
+  padding: 100px 0;
+  background: var(--bg);
+}
+
+.values .section-title { margin-bottom: 60px; }
+
+.values__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+
+.value-item {
+  display: flex;
+  gap: 28px;
+  padding: 36px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.value-item:nth-child(odd) {
+  padding-right: 48px;
+  border-right: 1px solid var(--border-color);
+}
+
+.value-item:nth-child(even) {
+  padding-left: 48px;
+}
+
+.value-item:nth-last-child(-n+2) {
+  border-bottom: none;
+}
+
+.value-item__num {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  letter-spacing: 0.06em;
+  flex-shrink: 0;
+  padding-top: 3px;
+  min-width: 28px;
+}
+
+.value-item__body h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+  letter-spacing: -0.01em;
+}
+
+.value-item__body p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+@media (max-width: 760px) {
+  .values__grid { grid-template-columns: 1fr; }
+
+  .value-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border-color) !important;
+    padding: 28px 0 !important;
+  }
+
+  .value-item:last-child { border-bottom: none !important; }
+  .values { padding: 72px 0; }
+}
