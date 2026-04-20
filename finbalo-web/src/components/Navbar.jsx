@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import logoLight from '../assets/Logo_Principal.svg';
-import logoDark from '../assets/Logo_Invertido.svg';
+import logoLight from '../assets/Logo.svg';
+import logoDark from '../assets/Logo_Negativo.svg';
 import './Navbar.css';
 
 const links = [
@@ -8,7 +8,6 @@ const links = [
   { label: 'Proceso', href: '#proceso' },
   { label: 'Tecnologías', href: '#tecnologias' },
   { label: 'FAQ', href: '#faq' },
-  { label: 'Contacto', href: '#contacto' },
 ];
 
 const sectionIds = links.map(link => link.href.slice(1));

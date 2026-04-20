@@ -1,4 +1,4 @@
-import logoDark from '../assets/Logo_Invertido.svg';
+import logoDark from '../assets/Logo_Negativo.svg';
 import './Footer.css';
 
 const year = new Date().getFullYear();

@@ -1,5 +1,5 @@
-import logoLight from '../assets/Logo_Principal.svg';
-import logoDark from '../assets/Logo_Invertido.svg';
+import logoLight from '../assets/Logo.svg';
+import logoDark from '../assets/Logo_Negativo.svg';
 import './Hero.css';
 
 export default function Hero({ theme }) {
