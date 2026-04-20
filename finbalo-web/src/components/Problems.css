@@ -1,0 +1,36 @@
+.problems {
+  padding: 104px 0;
+  background: var(--bg-section);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.problems__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.problems__card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+  padding: 26px;
+}
+
+.problems__card h3 {
+  font-size: 21px;
+  margin-bottom: 10px;
+  color: var(--text-primary);
+}
+
+.problems__card p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+@media (max-width: 760px) {
+  .problems__grid {
+    grid-template-columns: 1fr;
+  }
+}

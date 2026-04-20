@@ -1,6 +1,6 @@
 .footer {
-  background: var(--bg);
-  border-top: 1px solid var(--border-color);
+  background: #0B0F14;
+  border-top: 1px solid #1e2936;
 }
 
 .footer__inner {
@@ -18,7 +18,7 @@
 
 .footer__brand p {
   font-size: 14px;
-  color: var(--text-secondary);
+  color: #95A4B5;
   line-height: 1.7;
   max-width: 320px;
   margin-bottom: 16px;
@@ -27,7 +27,7 @@
 .footer__email {
   font-size: 14px;
   font-weight: 600;
-  color: var(--text-primary);
+  color: #F8F6F2;
   transition: opacity 0.2s;
 }
 
@@ -38,7 +38,7 @@
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--text-secondary);
+  color: #95A4B5;
   display: block;
   margin-bottom: 20px;
 }
@@ -54,17 +54,17 @@
 .footer__nav a,
 .footer__services a {
   font-size: 14px;
-  color: var(--text-secondary);
+  color: #c7d0da;
   transition: color 0.2s;
 }
 
 .footer__nav a:hover,
 .footer__services a:hover {
-  color: var(--text-primary);
+  color: #fff;
 }
 
 .footer__bottom {
-  border-top: 1px solid var(--border-color);
+  border-top: 1px solid #1e2936;
   padding: 20px 0;
 }
 
@@ -78,7 +78,7 @@
 
 .footer__bottom span {
   font-size: 13px;
-  color: var(--text-secondary);
+  color: #95A4B5;
 }
 
 @media (max-width: 760px) {
