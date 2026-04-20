@@ -19,7 +19,13 @@ export default function Navbar({ theme, toggleTheme }) {
   const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 24);
+      if (window.scrollY < 40 && window.location.hash === '') {
+        setActiveSection('');
+      }
+    };
+
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
@@ -27,7 +33,11 @@ export default function Navbar({ theme, toggleTheme }) {
   useEffect(() => {
     const setFromHash = () => {
       const id = window.location.hash.replace('#', '');
-      if (sectionIds.includes(id)) setActiveSection(id);
+      if (sectionIds.includes(id)) {
+        setActiveSection(id);
+      } else {
+        setActiveSection('');
+      }
     };
 
     setFromHash();
@@ -44,8 +54,8 @@ export default function Navbar({ theme, toggleTheme }) {
       },
       {
         root: null,
-        rootMargin: '-22% 0px -58% 0px',
-        threshold: [0.2, 0.35, 0.55],
+        rootMargin: '-20% 0px -58% 0px',
+        threshold: [0.2, 0.4, 0.6],
       }
     );
 
@@ -65,7 +75,14 @@ export default function Navbar({ theme, toggleTheme }) {
   return (
     <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
       <div className="navbar__inner section-wrap">
-        <a href="#" className="navbar__logo">
+        <a
+          href="#"
+          className="navbar__logo"
+          onClick={() => {
+            setActiveSection('');
+            setMenuOpen(false);
+          }}
+        >
           <img
             src={theme === 'dark' ? logoDark : logoLight}
             alt="Finbalo"
@@ -106,12 +123,13 @@ export default function Navbar({ theme, toggleTheme }) {
             className={`theme-switch ${theme === 'light' ? 'theme-switch--light' : ''}`}
             onClick={toggleTheme}
             role="switch"
-            aria-checked={theme === 'light'}
-            aria-label="Cambiar entre modo oscuro y claro"
-            title={theme === 'dark' ? 'Activar modo claro' : 'Activar modo oscuro'}
+            aria-checked={theme === 'dark'}
+            aria-label="Activar o desactivar modo oscuro"
+            title={theme === 'dark' ? 'Modo oscuro ON' : 'Modo oscuro OFF'}
           >
-            <span className="theme-switch__icon theme-switch__icon--moon" aria-hidden="true">🌙</span>
-            <span className="theme-switch__icon theme-switch__icon--sun" aria-hidden="true">☀️</span>
+            <span className="theme-switch__state" aria-hidden="true">
+              {theme === 'dark' ? 'ON' : 'OFF'}
+            </span>
             <span className="theme-switch__thumb" aria-hidden="true" />
           </button>
 
