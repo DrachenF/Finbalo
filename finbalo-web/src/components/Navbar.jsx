@@ -11,14 +11,55 @@ const links = [
   { label: 'Contacto', href: '#contacto' },
 ];
 
+const sectionIds = links.map(link => link.href.slice(1));
+
 export default function Navbar({ theme, toggleTheme }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  useEffect(() => {
+    const setFromHash = () => {
+      const id = window.location.hash.replace('#', '');
+      if (sectionIds.includes(id)) setActiveSection(id);
+    };
+
+    setFromHash();
+
+    const observer = new IntersectionObserver(
+      entries => {
+        const visibleEntries = entries
+          .filter(entry => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+        if (visibleEntries.length > 0) {
+          setActiveSection(visibleEntries[0].target.id);
+        }
+      },
+      {
+        root: null,
+        rootMargin: '-22% 0px -58% 0px',
+        threshold: [0.2, 0.35, 0.55],
+      }
+    );
+
+    sectionIds.forEach(id => {
+      const section = document.getElementById(id);
+      if (section) observer.observe(section);
+    });
+
+    window.addEventListener('hashchange', setFromHash);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('hashchange', setFromHash);
+    };
   }, []);
 
   return (
@@ -33,11 +74,26 @@ export default function Navbar({ theme, toggleTheme }) {
         </a>
 
         <ul className={`navbar__links ${menuOpen ? 'navbar__links--open' : ''}`}>
-          {links.map(l => (
-            <li key={l.href}>
-              <a href={l.href} onClick={() => setMenuOpen(false)}>{l.label}</a>
-            </li>
-          ))}
+          {links.map(l => {
+            const id = l.href.slice(1);
+            const isActive = activeSection === id;
+
+            return (
+              <li key={l.href}>
+                <a
+                  href={l.href}
+                  className={isActive ? 'navbar__link--active' : ''}
+                  aria-current={isActive ? 'location' : undefined}
+                  onClick={() => {
+                    setMenuOpen(false);
+                    setActiveSection(id);
+                  }}
+                >
+                  {l.label}
+                </a>
+              </li>
+            );
+          })}
           <li>
             <a href="#contacto" className="navbar__cta" onClick={() => setMenuOpen(false)}>
               Hablemos
@@ -49,10 +105,14 @@ export default function Navbar({ theme, toggleTheme }) {
           <button
             className={`theme-switch ${theme === 'light' ? 'theme-switch--light' : ''}`}
             onClick={toggleTheme}
+            role="switch"
+            aria-checked={theme === 'light'}
             aria-label="Cambiar entre modo oscuro y claro"
             title={theme === 'dark' ? 'Activar modo claro' : 'Activar modo oscuro'}
           >
-            <span className="theme-switch__thumb" />
+            <span className="theme-switch__icon theme-switch__icon--moon" aria-hidden="true">🌙</span>
+            <span className="theme-switch__icon theme-switch__icon--sun" aria-hidden="true">☀️</span>
+            <span className="theme-switch__thumb" aria-hidden="true" />
           </button>
 
           <button
