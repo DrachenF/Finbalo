@@ -4,7 +4,11 @@ import logoDark from '../assets/Logo_Negativo.svg';
 import './Navbar.css';
 
 const links = [
+  { label: 'A quién ayudamos', href: '#para-quien' },
+  { label: 'Problemas', href: '#problemas' },
   { label: 'Servicios', href: '#servicios' },
+  { label: 'Por qué Finbalo', href: '#por-que' },
+  { label: 'Demos', href: '#demos' },
   { label: 'Proceso', href: '#proceso' },
   { label: 'Tecnologías', href: '#tecnologias' },
   { label: 'FAQ', href: '#faq' },
