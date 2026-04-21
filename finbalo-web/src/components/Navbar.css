@@ -56,16 +56,16 @@
 [data-theme="light"] .navbar__links a.navbar__link--active {
   background: #EAF0F7;
   border-color: #D2DDE8;
-  box-shadow: inset 0 -2px 0 #95A4B5;
+  box-shadow: inset 0 -2px 0 var(--brand-blue);
 }
 
 [data-theme="dark"] .navbar__links a.navbar__link--active {
-  background: #000000;
-  border-color: #7E91AA;
+  background: #101720;
+  border-color: #2A3441;
   box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.10),
-    0 10px 22px rgba(0, 0, 0, 0.42),
-    inset 0 -2px 0 rgba(255, 255, 255, 0.18);
+    0 0 0 1px rgba(59, 130, 246, 0.22),
+    0 10px 22px rgba(0, 0, 0, 0.32),
+    inset 0 -2px 0 rgba(59, 130, 246, 0.55);
   color: #F8F6F2;
 }
 
