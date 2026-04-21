@@ -2,6 +2,28 @@
 
 Este archivo explica los cambios por versión **sin mostrar código**, en formato “antes / ahora”.
 
+## Versión actual (toggle de tema simplificado)
+
+### 1) Control de cambio de tema en navbar
+- **Antes:** el switch de tema era tipo píldora con estados ON/OFF.
+- **Ahora:** el control pasa a botón compacto con icono (sol/luna), manteniendo el mismo comportamiento de alternar entre modo oscuro y claro, pero con una interfaz más limpia.
+
+## Versión actual (pestaña activa persistente por sección)
+
+### 1) Estado activo del menú al navegar por secciones
+- **Antes:** el resaltado de la pestaña del navbar podía perderse en ciertos puntos de scroll aunque aún estuvieras dentro de la misma sección.
+- **Ahora:** el menú mantiene la pestaña activa mientras permanezcas en su bloque y solo cambia al entrar a la siguiente sección (o al salir de ella).
+
+## Versión actual (consistencia visual en navegación + registro actualizado)
+
+### 1) Efecto visual consistente en navegación
+- **Antes:** algunos enlaces del menú (especialmente los nuevos) se veían más planos y no transmitían el mismo feedback visual que otros estados activos.
+- **Ahora:** todos los enlaces del navbar comparten el mismo lenguaje visual en interacción (hover/realce/borde), para que “Demos”, “Problemas”, “A quién ayudamos” y demás se perciban coherentes con “Proceso”.
+
+### 2) Registro de cambios al día
+- **Antes:** se hicieron ajustes visuales recientes sin dejarlos anotados aquí.
+- **Ahora:** el historial vuelve a quedar actualizado para que cualquier revisión del proyecto tenga trazabilidad funcional y visual.
+
 ## Versión actual (homepage alineada + switch visual)
 
 ### 1) Estructura de la página principal

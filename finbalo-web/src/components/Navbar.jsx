@@ -4,7 +4,11 @@ import logoDark from '../assets/Logo_Negativo.svg';
 import './Navbar.css';
 
 const links = [
+  { label: 'A quién ayudamos', href: '#para-quien' },
+  { label: 'Problemas', href: '#problemas' },
   { label: 'Servicios', href: '#servicios' },
+  { label: 'Por qué Finbalo', href: '#por-que' },
+  { label: 'Demos', href: '#demos' },
   { label: 'Proceso', href: '#proceso' },
   { label: 'Tecnologías', href: '#tecnologias' },
   { label: 'FAQ', href: '#faq' },
@@ -30,43 +34,47 @@ export default function Navbar({ theme, toggleTheme }) {
   }, []);
 
   useEffect(() => {
+    const getTrackedSections = () =>
+      sectionIds
+        .map(id => document.getElementById(id))
+        .filter(Boolean);
+
     const setFromHash = () => {
       const id = window.location.hash.replace('#', '');
       if (sectionIds.includes(id)) {
         setActiveSection(id);
       } else {
-        setActiveSection('');
+        updateActiveByScroll();
       }
     };
 
-    setFromHash();
+    const updateActiveByScroll = () => {
+      const sections = getTrackedSections();
+      const marker = window.scrollY + 160;
+      let current = '';
 
-    const observer = new IntersectionObserver(
-      entries => {
-        const visibleEntries = entries
-          .filter(entry => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-
-        if (visibleEntries.length > 0) {
-          setActiveSection(visibleEntries[0].target.id);
+      for (const section of sections) {
+        if (section.offsetTop <= marker) {
+          current = section.id;
+        } else {
+          break;
         }
-      },
-      {
-        root: null,
-        rootMargin: '-20% 0px -58% 0px',
-        threshold: [0.2, 0.4, 0.6],
       }
-    );
+      if (window.scrollY < 40 && window.location.hash === '') {
+        current = '';
+      }
+      setActiveSection(prev => (prev === current ? prev : current));
+    };
 
-    sectionIds.forEach(id => {
-      const section = document.getElementById(id);
-      if (section) observer.observe(section);
-    });
-
+    setFromHash();
+    updateActiveByScroll();
+    window.addEventListener('scroll', updateActiveByScroll, { passive: true });
+    window.addEventListener('resize', updateActiveByScroll);
     window.addEventListener('hashchange', setFromHash);
 
     return () => {
-      observer.disconnect();
+      window.removeEventListener('scroll', updateActiveByScroll);
+      window.removeEventListener('resize', updateActiveByScroll);
       window.removeEventListener('hashchange', setFromHash);
     };
   }, []);
@@ -119,20 +127,21 @@ export default function Navbar({ theme, toggleTheme }) {
 
         <div className="navbar__right">
           <button
-            className={`theme-switch ${theme === 'light' ? 'theme-switch--light' : ''}`}
+            className="theme-toggle"
             onClick={toggleTheme}
-            role="switch"
-            aria-checked={theme === 'dark'}
-            aria-label="Activar o desactivar modo oscuro"
-            title={theme === 'dark' ? 'Modo oscuro ON' : 'Modo oscuro OFF'}
+            aria-label="Cambiar tema"
+            title={theme === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'}
           >
-            <span
-              className={`theme-switch__state ${theme === 'dark' ? 'theme-switch__state--on' : 'theme-switch__state--off'}`}
-              aria-hidden="true"
-            >
-              {theme === 'dark' ? 'ON' : 'OFF'}
-            </span>
-            <span className="theme-switch__thumb" aria-hidden="true" />
+            {theme === 'dark' ? (
+              <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <circle cx="12" cy="12" r="5" />
+                <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+              </svg>
+            ) : (
+              <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+              </svg>
+            )}
           </button>
 
           <button
