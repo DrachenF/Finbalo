@@ -17,7 +17,7 @@ const perks = [
 
 export default function WhyUs() {
   return (
-    <section className="whyus">
+    <section id="por-que" className="whyus">
       <div className="section-wrap whyus__inner">
         <div className="whyus__left">
           <p className="section-label">¿Por qué Finbalo?</p>

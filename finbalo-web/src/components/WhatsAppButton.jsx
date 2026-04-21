@@ -1,7 +1,7 @@
 import './WhatsAppButton.css';
 
-const WHATSAPP_NUMBER = '50200000000';
-const MESSAGE = encodeURIComponent('Hola Finbalo, me interesa conocer más sobre sus servicios.');
+const WHATSAPP_NUMBER = '50259025388';
+const MESSAGE = encodeURIComponent('Hola, me interesa cotizar un proyecto con Finbalo.');
 
 export default function WhatsAppButton() {
   return (

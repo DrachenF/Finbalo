@@ -7,14 +7,12 @@
    width="1920"
    height="1920"
    viewBox="0 0 1920 1920"
-   sodipodi:docname="favicon.svg"
+   sodipodi:docname="Logo_Negativo.svg"
    inkscape:version="1.4.3 (0d15f75, 2025-12-25)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
-  <defs
-     id="defs1" />
   <sodipodi:namedview
      id="namedview1"
      pagecolor="#ffffff"
@@ -25,14 +23,14 @@
      inkscape:pagecheckerboard="1"
      inkscape:deskcolor="#d1d1d1"
      inkscape:zoom="0.30885417"
-     inkscape:cx="960"
-     inkscape:cy="960"
+     inkscape:cx="959.99999"
+     inkscape:cy="963.23776"
      inkscape:window-width="1440"
      inkscape:window-height="837"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg1">
+     inkscape:current-layer="group-MC6">
     <inkscape:page
        x="0"
        y="0"
@@ -43,14 +41,8 @@
        margin="140.448 249.78667 126.12 262.22266"
        bleed="0" />
   </sodipodi:namedview>
-  <rect
-     style="fill:#ececec;stroke-width:20.0508"
-     id="rect28"
-     width="1920"
-     height="1910.2866"
-     x="3.2377741"
-     y="0"
-     ry="485.66608" />
+  <defs
+     id="defs1" />
   <g
      id="g1"
      inkscape:groupmode="layer"
@@ -63,37 +55,37 @@
         <path
            id="path2"
            d="m 0,0 v -184.909 l -130.603,-130.598 -92.409,92.415 z"
-           style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
            transform="matrix(1.3333333,0,0,-1.3333333,932.33,126.12027)" />
         <path
            id="path3"
            d="m 0,0 -42.107,-42.104 c -29.862,-29.862 -29.864,-78.277 -0.003,-108.141 l 72.312,-72.319 v -186.217 l -185.959,185.965 -92.764,92.771 186.069,186.069 3.218,3.217 c 16.358,16.356 42.878,16.354 59.235,-0.003 v 0 C 16.359,42.88 16.359,16.358 0,0"
-           style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
            transform="matrix(1.3333333,0,0,-1.3333333,892.044,759.64093)" />
         <path
            id="path4"
            d="m 0,0 v 0 l -93.114,-93.102 -32.843,32.842 v 0 c -51.016,51.019 -51.023,133.732 -0.015,184.759 l 0.739,0.74 92.949,92.979 L 60.118,125.804 0.004,65.693 C -18.137,47.553 -18.139,18.142 0,0"
-           style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
            transform="matrix(1.3333333,0,0,-1.3333333,634.2524,758.31587)" />
         <path
            id="path5"
            d="m 0,0 v -184.909 l 130.603,-130.597 92.409,92.414 z"
-           style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
            transform="matrix(1.3333333,0,0,-1.3333333,994.33467,126.25147)" />
         <path
            id="path6"
            d="m 0,0 42.542,-42.54 c 29.622,-29.62 29.624,-77.646 0.004,-107.269 l -72.748,-72.755 v -186.217 l 185.959,185.965 92.764,92.771 L 62.452,56.024 59.234,59.241 C 42.876,75.597 16.356,75.595 -0.001,59.238 v 0 C -16.359,42.88 -16.359,16.358 0,0"
-           style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
            transform="matrix(1.3333333,0,0,-1.3333333,1034.6208,759.77213)" />
         <path
            id="path7"
            d="m 0,0 v 0 l 93.114,-93.102 32.843,32.842 v 0 c 51.016,51.019 51.023,133.732 0.015,184.759 l -0.739,0.74 -92.949,92.979 -92.402,-92.414 60.114,-60.111 C 18.137,47.553 18.139,18.142 0,0"
-           style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
            transform="matrix(1.3333333,0,0,-1.3333333,1292.4124,758.44707)" />
         <path
            id="path8"
            d="M 0,0 -52.682,-52.682 -105.363,0 Z"
-           style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           style="fill:#3b82f6;fill-opacity:1;fill-rule:nonzero;stroke:none"
            transform="matrix(1.3333333,0,0,-1.3333333,1033.4732,889.49587)" />
       </g>
     </g>

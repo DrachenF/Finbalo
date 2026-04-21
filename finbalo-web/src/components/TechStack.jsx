@@ -29,7 +29,7 @@ const stacks = [
 
 export default function TechStack() {
   return (
-    <section className="techstack">
+    <section id="tecnologias" className="techstack">
       <div className="section-wrap">
         <p className="section-label">Tecnología</p>
         <h2 className="section-title">Las herramientas<br />que dominamos.</h2>

@@ -69,7 +69,7 @@ export default function Contact() {
             </div>
 
             <a
-              href="https://wa.me/50200000000?text=Hola%20Finbalo%2C%20quiero%20agendar%20una%20reuni%C3%B3n."
+              href="https://wa.me/50259025388?text=Hola%20Finbalo%2C%20quiero%20agendar%20una%20reuni%C3%B3n."
               target="_blank"
               rel="noopener noreferrer"
               className="contact__channel"

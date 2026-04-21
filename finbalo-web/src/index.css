@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Sora:wght@600;700&display=swap');
+
 :root {
   --logo: #0B0F14;
   --warm: #F8F6F2;
@@ -9,7 +11,8 @@
   --card: #FCFBF9;
   --alt: #EEF2F6;
   --accent: #C7D0DA;
-  --hover: #1A222C;
+  --hover: #95A4B5;
+  --brand-blue: #3B82F6;
 
   --bg: var(--warm);
   --bg-card: var(--white);
@@ -48,7 +51,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
   line-height: 1.1;
   letter-spacing: -0.02em;
 }
@@ -56,6 +59,11 @@ h1, h2, h3, h4, h5, h6 {
 a { text-decoration: none; color: inherit; }
 img { max-width: 100%; height: auto; display: block; }
 button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+:where(a, button, input, select, textarea):focus-visible {
+  outline: 2px solid var(--brand-blue);
+  outline-offset: 2px;
+}
 
 .section-wrap {
   width: min(1160px, 92vw);
