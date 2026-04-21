@@ -34,43 +34,47 @@ export default function Navbar({ theme, toggleTheme }) {
   }, []);
 
   useEffect(() => {
+    const getTrackedSections = () =>
+      sectionIds
+        .map(id => document.getElementById(id))
+        .filter(Boolean);
+
     const setFromHash = () => {
       const id = window.location.hash.replace('#', '');
       if (sectionIds.includes(id)) {
         setActiveSection(id);
       } else {
-        setActiveSection('');
+        updateActiveByScroll();
       }
     };
 
-    setFromHash();
+    const updateActiveByScroll = () => {
+      const sections = getTrackedSections();
+      const marker = window.scrollY + 160;
+      let current = '';
 
-    const observer = new IntersectionObserver(
-      entries => {
-        const visibleEntries = entries
-          .filter(entry => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-
-        if (visibleEntries.length > 0) {
-          setActiveSection(visibleEntries[0].target.id);
+      for (const section of sections) {
+        if (section.offsetTop <= marker) {
+          current = section.id;
+        } else {
+          break;
         }
-      },
-      {
-        root: null,
-        rootMargin: '-20% 0px -58% 0px',
-        threshold: [0.2, 0.4, 0.6],
       }
-    );
+      if (window.scrollY < 40 && window.location.hash === '') {
+        current = '';
+      }
+      setActiveSection(prev => (prev === current ? prev : current));
+    };
 
-    sectionIds.forEach(id => {
-      const section = document.getElementById(id);
-      if (section) observer.observe(section);
-    });
-
+    setFromHash();
+    updateActiveByScroll();
+    window.addEventListener('scroll', updateActiveByScroll, { passive: true });
+    window.addEventListener('resize', updateActiveByScroll);
     window.addEventListener('hashchange', setFromHash);
 
     return () => {
-      observer.disconnect();
+      window.removeEventListener('scroll', updateActiveByScroll);
+      window.removeEventListener('resize', updateActiveByScroll);
       window.removeEventListener('hashchange', setFromHash);
     };
   }, []);

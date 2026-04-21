@@ -2,6 +2,12 @@
 
 Este archivo explica los cambios por versión **sin mostrar código**, en formato “antes / ahora”.
 
+## Versión actual (pestaña activa persistente por sección)
+
+### 1) Estado activo del menú al navegar por secciones
+- **Antes:** el resaltado de la pestaña del navbar podía perderse en ciertos puntos de scroll aunque aún estuvieras dentro de la misma sección.
+- **Ahora:** el menú mantiene la pestaña activa mientras permanezcas en su bloque y solo cambia al entrar a la siguiente sección (o al salir de ella).
+
 ## Versión actual (consistencia visual en navegación + registro actualizado)
 
 ### 1) Efecto visual consistente en navegación
