@@ -3,9 +3,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import ForWho from './components/ForWho';
 import Services from './components/Services';
-import About from './components/About';
-import MisionVision from './components/MisionVision';
-import Values from './components/Values';
+import NeedsCatalog from './components/NeedsCatalog';
 import WhyUs from './components/WhyUs';
 import TechStack from './components/TechStack';
 import Process from './components/Process';
@@ -27,7 +25,7 @@ export default function App() {
     localStorage.setItem('finbalo-theme', theme);
   }, [theme]);
 
-  const toggleTheme = () => setTheme(t => t === 'dark' ? 'light' : 'dark');
+  const toggleTheme = () => setTheme(t => (t === 'dark' ? 'light' : 'dark'));
 
   return (
     <>
@@ -36,12 +34,10 @@ export default function App() {
         <Hero theme={theme} />
         <ForWho />
         <Services />
-        <About />
-        <MisionVision />
-        <Values />
-        <TechStack />
+        <NeedsCatalog />
         <WhyUs />
         <Process />
+        <TechStack />
         <FAQ />
         <Contact />
       </main>
