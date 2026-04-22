@@ -45,7 +45,7 @@
 }
 
 .techstack__tags span:hover {
-  border-color: var(--accent);
+  border-color: var(--brand-blue);
   background: var(--bg-section);
 }
 

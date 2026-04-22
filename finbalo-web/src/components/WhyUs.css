@@ -1,6 +1,6 @@
 .whyus {
   padding: 100px 0;
-  background: var(--bg-section);
+  background: var(--bg);
 }
 
 .whyus__inner {
@@ -122,4 +122,6 @@
     gap: 48px;
   }
   .whyus { padding: 72px 0; }
+  .whyus__compare { margin-top: 28px; }
+  .whyus__perks-card { padding: 28px; border-radius: 22px; }
 }
