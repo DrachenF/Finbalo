@@ -35,7 +35,7 @@
   transition: border-color 0.2s;
 }
 
-a.contact__channel:hover { border-color: var(--accent); }
+a.contact__channel:hover { border-color: var(--brand-blue); }
 
 .contact__channel-icon {
   width: 44px;
@@ -76,6 +76,7 @@ a.contact__channel:hover { border-color: var(--accent); }
 }
 
 .contact__form-wrap {
+  scroll-margin-top: 82px;
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: 28px;
@@ -130,7 +131,7 @@ a.contact__channel:hover { border-color: var(--accent); }
 .contact__field input:focus,
 .contact__field select:focus,
 .contact__field textarea:focus {
-  border-color: var(--text-primary);
+  border-color: var(--brand-blue);
 }
 
 .contact__submit {
@@ -177,6 +178,7 @@ a.contact__channel:hover { border-color: var(--accent); }
 
 @media (max-width: 580px) {
   .contact__form-row { grid-template-columns: 1fr; }
-  .contact__form-wrap { padding: 28px; }
+  .contact__form-wrap {
+  scroll-margin-top: 82px; padding: 28px; }
   .contact { padding: 72px 0; }
 }
