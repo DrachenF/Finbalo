@@ -122,3 +122,14 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   background: var(--bg-alt);
   transform: translateY(-1px);
 }
+
+
+section[id] {
+  scroll-margin-top: 96px;
+}
+
+@media (max-width: 860px) {
+  section[id] {
+    scroll-margin-top: 84px;
+  }
+}
