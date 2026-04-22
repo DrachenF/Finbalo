@@ -93,8 +93,12 @@ const options = [
 ];
 
 export default function NeedsCatalog() {
-  const [activeId, setActiveId] = useState(options[0].id);
-  const active = options.find(option => option.id === activeId) ?? options[0];
+  const [activeId, setActiveId] = useState('');
+  const active = options.find(option => option.id === activeId);
+
+  const handleToggle = id => {
+    setActiveId(current => (current === id ? '' : id));
+  };
 
   return (
     <section className="needs" id="que-necesitas">
@@ -114,37 +118,40 @@ export default function NeedsCatalog() {
               <button
                 type="button"
                 className="needs__action"
-                onClick={() => setActiveId(option.id)}
-                aria-pressed={option.id === activeId}
+                onClick={() => handleToggle(option.id)}
+                aria-expanded={option.id === activeId}
+                aria-controls="needs-detail"
               >
-                Ver solución
+                {option.id === activeId ? 'Ocultar solución' : 'Ver solución'}
               </button>
             </article>
           ))}
         </div>
 
-        <article className="needs__detail" aria-live="polite">
-          <h3>{active.name}</h3>
-          <div className="needs__detail-grid">
-            <div>
-              <strong>Para quién aplica</strong>
-              <p>{active.detail.forWho}</p>
+        {active && (
+          <article className="needs__detail" id="needs-detail" aria-live="polite">
+            <h3>{active.name}</h3>
+            <div className="needs__detail-grid">
+              <div>
+                <strong>Para quién aplica</strong>
+                <p>{active.detail.forWho}</p>
+              </div>
+              <div>
+                <strong>Qué necesidad resuelve</strong>
+                <p>{active.detail.solves}</p>
+              </div>
+              <div>
+                <strong>Qué puede incluir</strong>
+                <p>{active.detail.includes}</p>
+              </div>
+              <div>
+                <strong>Cuándo conviene</strong>
+                <p>{active.detail.when}</p>
+              </div>
             </div>
-            <div>
-              <strong>Qué necesidad resuelve</strong>
-              <p>{active.detail.solves}</p>
-            </div>
-            <div>
-              <strong>Qué puede incluir</strong>
-              <p>{active.detail.includes}</p>
-            </div>
-            <div>
-              <strong>Cuándo conviene</strong>
-              <p>{active.detail.when}</p>
-            </div>
-          </div>
-          <a href="#formulario-contacto" className="btn-primary">Hablemos de esto</a>
-        </article>
+            <a href="#formulario-contacto" className="btn-primary">Hablemos de esto</a>
+          </article>
+        )}
       </div>
     </section>
   );

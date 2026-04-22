@@ -56,17 +56,19 @@
 }
 
 .needs__action:hover,
-.needs__action[aria-pressed='true'] {
+.needs__action[aria-expanded='true'] {
   border-color: var(--brand-blue);
   color: var(--brand-blue);
   background: color-mix(in srgb, var(--brand-blue) 8%, var(--bg-alt));
 }
 
 .needs__detail {
+  margin-top: 6px;
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: 22px;
   padding: 30px;
+  animation: needs-fade-in 0.2s ease;
 }
 
 .needs__detail h3 {
@@ -127,5 +129,17 @@
   .needs__card,
   .needs__detail {
     padding: 22px;
+  }
+}
+
+@keyframes needs-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
