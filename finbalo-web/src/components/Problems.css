@@ -18,6 +18,12 @@
   border: 1px solid var(--border-color);
   border-radius: 20px;
   padding: 28px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.problems__card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
 }
 
 .problems__card h3 {
@@ -25,6 +31,7 @@
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 10px;
+  letter-spacing: -0.01em;
 }
 
 .problems__card p {
@@ -38,7 +45,19 @@
     padding: 72px 0;
   }
 
+  .problems .section-subtitle {
+    margin-bottom: 36px;
+  }
+
   .problems__grid {
     grid-template-columns: 1fr;
+  }
+
+  .problems__card {
+    padding: 22px;
+  }
+
+  .problems__card h3 {
+    font-size: 18px;
   }
 }

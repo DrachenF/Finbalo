@@ -2,29 +2,29 @@ import './WhyUs.css';
 
 const items = [
   {
-    label: 'Soluciones improvisadas',
+    label: 'Enfoque improvisado',
     finbalo: false,
-    text: 'Se construyen rápido, pero sin método claro ni visión de mantenimiento.',
+    text: 'Entrega rápida al inicio, pero sin base técnica ni proceso para sostener el crecimiento.',
   },
   {
-    label: 'Proveedores sin proceso',
+    label: 'Proveedor sin estructura',
     finbalo: false,
-    text: 'Hay buena intención, pero poca estructura para controlar alcance, calidad y tiempos.',
+    text: 'Falta claridad en alcance, tiempos y calidad. Eso termina elevando costo y riesgo.',
   },
   {
     label: 'Finbalo',
     finbalo: true,
-    text: 'Equipo técnico cercano, proceso definido y foco real en resultados de negocio.',
+    text: 'Proceso ordenado, comunicación directa y foco en resultados concretos para el negocio.',
   },
 ];
 
 const perks = [
-  'Comunicación directa con el equipo técnico',
-  'Estimaciones honestas y alcance transparente',
-  'Revisión de calidad y QA en cada etapa',
+  'Diagnóstico inicial orientado a negocio',
+  'Alcance y estimaciones con criterios claros',
+  'QA integrado durante la ejecución',
   'Código fuente 100% tuyo al finalizar',
-  'Soporte post-entrega y mejoras evolutivas',
-  'Contrato claro que protege a ambas partes',
+  'Soporte post-entrega para estabilizar y crecer',
+  'Contrato claro para reducir riesgos',
 ];
 
 export default function WhyUs() {
@@ -33,10 +33,10 @@ export default function WhyUs() {
       <div className="section-wrap whyus__inner">
         <div className="whyus__left">
           <p className="section-label">¿Por qué trabajar con nosotros?</p>
-          <h2 className="section-title">Forma profesional,<br />sin burocracia innecesaria.</h2>
+          <h2 className="section-title">Tecnología bien ejecutada,<br />con impacto comercial.</h2>
           <p className="section-subtitle">
-            Tomamos lo valioso de un equipo técnico sólido: calidad, transparencia y cumplimiento,
-            sin convertir el proceso en algo lento o confuso para tu empresa.
+            Combinamos rigor técnico con enfoque de negocio para que cada entrega
+            tenga una utilidad real en tu operación.
           </p>
 
           <div className="whyus__compare">
@@ -64,7 +64,7 @@ export default function WhyUs() {
 
         <div className="whyus__right">
           <div className="whyus__perks-card">
-            <h3>Lo que incluye cada proyecto</h3>
+            <h3>Lo que sí garantizamos</h3>
             <ul>
               {perks.map(perk => (
                 <li key={perk}>

@@ -3,27 +3,27 @@ import './Solutions.css';
 const solutions = [
   {
     title: 'Sitios corporativos y landing pages',
-    desc: 'Webs profesionales enfocadas en comunicar valor, generar confianza y convertir visitas en oportunidades.',
+    desc: 'Páginas claras y profesionales para comunicar valor, captar leads y mejorar conversión comercial.',
   },
   {
-    title: 'Sistemas internos y paneles de control',
-    desc: 'Plataformas para centralizar operaciones, visualizar métricas y mejorar la toma de decisiones.',
+    title: 'Sistemas internos y dashboards',
+    desc: 'Herramientas para ordenar operaciones, centralizar información y dar visibilidad en tiempo real.',
   },
   {
-    title: 'Automatización de procesos clave',
-    desc: 'Flujos para formularios, reservas, seguimientos o aprobaciones que reducen tareas manuales y errores.',
+    title: 'Automatización de procesos críticos',
+    desc: 'Flujos para formularios, reservas, seguimiento y aprobaciones que reducen carga manual y errores.',
   },
   {
     title: 'Portales para clientes y equipos',
-    desc: 'Accesos personalizados para gestionar información, solicitudes y comunicación en un solo lugar.',
+    desc: 'Espacios privados para consultas, solicitudes y gestión de información desde un solo lugar.',
   },
   {
-    title: 'Aplicaciones web, móviles o escritorio',
-    desc: 'Herramientas operativas adaptadas a tu caso de uso, con arquitectura pensada para crecer contigo.',
+    title: 'Aplicaciones web, móviles y escritorio',
+    desc: 'Soluciones operativas adaptadas a tu caso de uso, con base técnica sólida y mantenible.',
   },
   {
-    title: 'Integraciones y capas de API',
-    desc: 'Conexión entre sistemas existentes para evitar duplicidad de trabajo y mantener datos consistentes.',
+    title: 'Integraciones y APIs entre sistemas',
+    desc: 'Conectamos herramientas existentes para evitar duplicidad y mantener consistencia en los datos.',
   },
 ];
 
@@ -32,10 +32,10 @@ export default function Solutions() {
     <section className="solutions" id="soluciones">
       <div className="section-wrap">
         <p className="section-label">Soluciones</p>
-        <h2 className="section-title">Tipos de soluciones<br />que podemos construir.</h2>
+        <h2 className="section-title">Capacidades de implementación<br />para tu operación.</h2>
         <p className="section-subtitle">
-          Estas son capacidades de implementación de Finbalo. Se adaptan al tamaño,
-          industria y etapa de tu negocio.
+          Definimos la solución según tu contexto de negocio, alcance y etapa de crecimiento.
+          Sin complejidad innecesaria.
         </p>
 
         <div className="solutions__grid">
