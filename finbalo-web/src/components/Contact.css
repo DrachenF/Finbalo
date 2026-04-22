@@ -35,7 +35,7 @@
   transition: border-color 0.2s;
 }
 
-a.contact__channel:hover { border-color: var(--accent); }
+a.contact__channel:hover { border-color: var(--brand-blue); }
 
 .contact__channel-icon {
   width: 44px;
@@ -130,7 +130,7 @@ a.contact__channel:hover { border-color: var(--accent); }
 .contact__field input:focus,
 .contact__field select:focus,
 .contact__field textarea:focus {
-  border-color: var(--text-primary);
+  border-color: var(--brand-blue);
 }
 
 .contact__submit {
