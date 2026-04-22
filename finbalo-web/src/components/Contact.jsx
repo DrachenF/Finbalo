@@ -87,7 +87,7 @@ export default function Contact() {
           </div>
         </div>
 
-        <div className="contact__form-wrap">
+        <div className="contact__form-wrap" id="formulario-contacto">
           {sent ? (
             <div className="contact__success">
               <div className="contact__success-icon">

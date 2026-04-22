@@ -6,10 +6,10 @@ const year = new Date().getFullYear();
 
 const nav = [
   { label: 'Servicios', href: '#servicios' },
-  { label: 'Nosotros', href: '#nosotros' },
-  { label: 'Misión & Visión', href: '#mision' },
-  { label: 'Valores', href: '#valores' },
+  { label: 'Qué necesitas', href: '#que-necesitas' },
   { label: 'Proceso', href: '#proceso' },
+  { label: 'Tecnologías', href: '#tecnologias' },
+  { label: 'FAQ', href: '#faq' },
   { label: 'Contacto', href: '#contacto' },
 ];
 
@@ -18,7 +18,7 @@ export default function Footer({ theme }) {
     <footer className="footer">
       <div className="section-wrap footer__inner">
         <div className="footer__brand">
-          <a href="#" className="footer__logo">
+          <a href="#inicio" className="footer__logo">
             <img
               src={theme === 'dark' ? logoDark : logoLight}
               alt="Finbalo"
@@ -27,7 +27,7 @@ export default function Footer({ theme }) {
           </a>
           <p>
             Estudio de desarrollo de software con base en Guatemala.
-            Construimos el software que tu negocio necesita.
+            Construimos soluciones claras para problemas reales de negocio.
           </p>
           <a href="mailto:contacto@finbalo.com" className="footer__email">
             contacto@finbalo.com
@@ -37,9 +37,9 @@ export default function Footer({ theme }) {
         <div className="footer__nav">
           <span className="footer__nav-title">Navegación</span>
           <ul>
-            {nav.map(l => (
-              <li key={l.href}>
-                <a href={l.href}>{l.label}</a>
+            {nav.map(link => (
+              <li key={link.href}>
+                <a href={link.href}>{link.label}</a>
               </li>
             ))}
           </ul>
@@ -48,9 +48,9 @@ export default function Footer({ theme }) {
         <div className="footer__services">
           <span className="footer__nav-title">Servicios</span>
           <ul>
-            {['Desarrollo de Software', 'Testing & QA', 'Páginas Web', 'Apps de Escritorio', 'Apps Móviles', 'Consultoría'].map(s => (
-              <li key={s}>
-                <a href="#servicios">{s}</a>
+            {['Desarrollo de Software', 'Testing & QA', 'Páginas Web', 'Apps de Escritorio', 'Apps Móviles', 'Consultoría'].map(service => (
+              <li key={service}>
+                <a href="#servicios">{service}</a>
               </li>
             ))}
           </ul>
