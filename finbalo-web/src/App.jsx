@@ -2,9 +2,11 @@ import { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import ForWho from './components/ForWho';
+import Problems from './components/Problems';
 import Services from './components/Services';
 import NeedsCatalog from './components/NeedsCatalog';
 import WhyUs from './components/WhyUs';
+import Solutions from './components/Solutions';
 import TechStack from './components/TechStack';
 import Process from './components/Process';
 import FAQ from './components/FAQ';
@@ -33,9 +35,11 @@ export default function App() {
       <main>
         <Hero theme={theme} />
         <ForWho />
+        <Problems />
         <Services />
         <NeedsCatalog />
         <WhyUs />
+        <Solutions />
         <Process />
         <TechStack />
         <FAQ />
