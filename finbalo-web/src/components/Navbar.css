@@ -43,7 +43,7 @@
 }
 
 .navbar__links a:hover {
-  color: var(--text-primary);
+  color: var(--brand-blue);
   background: var(--bg-alt);
 }
 
@@ -79,7 +79,7 @@
 }
 
 .theme-toggle:hover {
-  color: var(--text-primary);
+  color: var(--brand-blue);
   background: var(--bg-alt);
 }
 

@@ -22,7 +22,7 @@
 }
 
 .solutions__card:hover {
-  border-color: var(--accent);
+  border-color: var(--brand-blue);
   transform: translateY(-2px);
 }
 
