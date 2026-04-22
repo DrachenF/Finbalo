@@ -2,11 +2,10 @@ import { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import ForWho from './components/ForWho';
+import Problems from './components/Problems';
 import Services from './components/Services';
-import About from './components/About';
-import MisionVision from './components/MisionVision';
-import Values from './components/Values';
 import WhyUs from './components/WhyUs';
+import Solutions from './components/Solutions';
 import TechStack from './components/TechStack';
 import Process from './components/Process';
 import FAQ from './components/FAQ';
@@ -27,7 +26,7 @@ export default function App() {
     localStorage.setItem('finbalo-theme', theme);
   }, [theme]);
 
-  const toggleTheme = () => setTheme(t => t === 'dark' ? 'light' : 'dark');
+  const toggleTheme = () => setTheme(t => (t === 'dark' ? 'light' : 'dark'));
 
   return (
     <>
@@ -35,13 +34,12 @@ export default function App() {
       <main>
         <Hero theme={theme} />
         <ForWho />
+        <Problems />
         <Services />
-        <About />
-        <MisionVision />
-        <Values />
-        <TechStack />
         <WhyUs />
+        <Solutions />
         <Process />
+        <TechStack />
         <FAQ />
         <Contact />
       </main>

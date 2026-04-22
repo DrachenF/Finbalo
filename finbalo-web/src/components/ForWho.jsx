@@ -94,13 +94,13 @@ export default function ForWho() {
         </p>
 
         <div className="forwho__grid">
-          {profiles.map(({ Icon, title, desc }) => (
-            <div key={title} className="forwho__card">
+          {profiles.map(profile => (
+            <div key={profile.title} className="forwho__card">
               <div className="forwho__icon">
-                <Icon />
+                <profile.Icon />
               </div>
-              <h3>{title}</h3>
-              <p>{desc}</p>
+              <h3>{profile.title}</h3>
+              <p>{profile.desc}</p>
             </div>
           ))}
         </div>

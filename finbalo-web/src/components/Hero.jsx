@@ -4,7 +4,7 @@ import './Hero.css';
 
 export default function Hero({ theme }) {
   return (
-    <section className="hero">
+    <section className="hero" id="inicio">
       <div className="hero__bg-grid" aria-hidden="true" />
       <div className="section-wrap hero__inner">
 
@@ -20,15 +20,15 @@ export default function Hero({ theme }) {
           </h1>
 
           <p className="hero__sub">
-            Creamos software a medida, probamos el que ya tienes y llevamos tus ideas
-            a producción — con calidad, plazos reales y comunicación directa.
+            Creamos software a medida, optimizamos procesos y llevamos tus ideas
+            a producción con calidad, plazos reales y comunicación directa.
           </p>
 
           <div className="hero__actions">
             <a href="#contacto" className="btn-primary">
               Empecemos juntos
               <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                <path d="M5 12h14M12 5l7 7-7 7"/>
+                <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </a>
             <a href="#servicios" className="btn-secondary">Ver servicios</a>
