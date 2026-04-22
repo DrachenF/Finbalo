@@ -6,8 +6,7 @@ const year = new Date().getFullYear();
 
 const nav = [
   { label: 'Servicios', href: '#servicios' },
-  { label: 'Problemas', href: '#problemas' },
-  { label: 'Soluciones', href: '#soluciones' },
+  { label: 'Qué necesitas', href: '#que-necesitas' },
   { label: 'Proceso', href: '#proceso' },
   { label: 'Tecnologías', href: '#tecnologias' },
   { label: 'FAQ', href: '#faq' },

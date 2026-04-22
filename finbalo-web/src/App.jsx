@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import ForWho from './components/ForWho';
 import Problems from './components/Problems';
 import Services from './components/Services';
+import NeedsCatalog from './components/NeedsCatalog';
 import WhyUs from './components/WhyUs';
 import Solutions from './components/Solutions';
 import TechStack from './components/TechStack';
@@ -36,6 +37,7 @@ export default function App() {
         <ForWho />
         <Problems />
         <Services />
+        <NeedsCatalog />
         <WhyUs />
         <Solutions />
         <Process />

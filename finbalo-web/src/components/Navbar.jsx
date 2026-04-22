@@ -5,8 +5,7 @@ import './Navbar.css';
 
 const links = [
   { label: 'Servicios', href: '#servicios' },
-  { label: 'Problemas', href: '#problemas' },
-  { label: 'Soluciones', href: '#soluciones' },
+  { label: 'Qué necesitas', href: '#que-necesitas' },
   { label: 'Proceso', href: '#proceso' },
   { label: 'Tecnologías', href: '#tecnologias' },
   { label: 'Contacto', href: '#contacto' },
@@ -15,7 +14,7 @@ const links = [
 export default function Navbar({ theme, toggleTheme }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activeHref, setActiveHref] = useState('#servicios');
+  const [activeHref, setActiveHref] = useState('');
 
   useEffect(() => {
     const sectionIds = links.map(link => link.href.replace('#', ''));
@@ -24,7 +23,7 @@ export default function Navbar({ theme, toggleTheme }) {
       setScrolled(window.scrollY > 24);
 
       const checkpoint = window.innerHeight * 0.35;
-      let current = '#servicios';
+      let current = '';
 
       sectionIds.forEach(id => {
         const section = document.getElementById(id);
@@ -36,7 +35,7 @@ export default function Navbar({ theme, toggleTheme }) {
         }
       });
 
-      if (window.scrollY < 120) current = '#servicios';
+      if (window.scrollY < 120) current = '';
 
       setActiveHref(prev => (prev === current ? prev : current));
     };
