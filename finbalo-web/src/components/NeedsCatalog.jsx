@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { Fragment, useEffect, useMemo, useRef, useState } from 'react';
 import './NeedsCatalog.css';
 
 const options = [
@@ -92,9 +92,36 @@ const options = [
   },
 ];
 
+const getColumns = () => {
+  if (window.innerWidth <= 580) return 1;
+  if (window.innerWidth <= 860) return 2;
+  if (window.innerWidth <= 1080) return 3;
+  return 4;
+};
+
 export default function NeedsCatalog() {
   const [activeId, setActiveId] = useState('');
-  const active = options.find(option => option.id === activeId);
+  const [columns, setColumns] = useState(() => getColumns());
+  const detailRef = useRef(null);
+
+  const activeIndex = useMemo(() => options.findIndex(option => option.id === activeId), [activeId]);
+
+  useEffect(() => {
+    const handleResize = () => setColumns(getColumns());
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    if (!activeId || !detailRef.current) return;
+
+    const timer = window.setTimeout(() => {
+      const top = detailRef.current.getBoundingClientRect().top + window.scrollY - 84;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }, 70);
+
+    return () => window.clearTimeout(timer);
+  }, [activeId, columns]);
 
   const handleToggle = id => {
     setActiveId(current => (current === id ? '' : id));
@@ -111,47 +138,56 @@ export default function NeedsCatalog() {
         </p>
 
         <div className="needs__grid">
-          {options.map(option => (
-            <article key={option.id} className={`needs__card ${option.id === activeId ? 'needs__card--active' : ''}`}>
-              <h3>{option.name}</h3>
-              <p>{option.short}</p>
-              <button
-                type="button"
-                className="needs__action"
-                onClick={() => handleToggle(option.id)}
-                aria-expanded={option.id === activeId}
-                aria-controls="needs-detail"
-              >
-                {option.id === activeId ? 'Ocultar solución' : 'Ver solución'}
-              </button>
-            </article>
-          ))}
-        </div>
+          {options.map((option, index) => {
+            const isActive = option.id === activeId;
+            const isRowEnd = (index + 1) % columns === 0 || index === options.length - 1;
+            const isActiveRow = activeIndex !== -1 && Math.floor(activeIndex / columns) === Math.floor(index / columns);
+            const showDetailHere = isActiveRow && isRowEnd;
 
-        {active && (
-          <article className="needs__detail" id="needs-detail" aria-live="polite">
-            <h3>{active.name}</h3>
-            <div className="needs__detail-grid">
-              <div>
-                <strong>Para quién aplica</strong>
-                <p>{active.detail.forWho}</p>
-              </div>
-              <div>
-                <strong>Qué necesidad resuelve</strong>
-                <p>{active.detail.solves}</p>
-              </div>
-              <div>
-                <strong>Qué puede incluir</strong>
-                <p>{active.detail.includes}</p>
-              </div>
-              <div>
-                <strong>Cuándo conviene</strong>
-                <p>{active.detail.when}</p>
-              </div>
-            </div>
-            <a href="#formulario-contacto" className="btn-primary">Hablemos de esto</a>
-          </article>
-        )}
+            return (
+              <Fragment key={option.id}>
+                <article key={option.id} className={`needs__card ${isActive ? 'needs__card--active' : ''}`}>
+                  <h3>{option.name}</h3>
+                  <p>{option.short}</p>
+                  <button
+                    type="button"
+                    className="needs__action"
+                    onClick={() => handleToggle(option.id)}
+                    aria-expanded={isActive}
+                    aria-controls={isActive ? 'needs-detail' : undefined}
+                  >
+                    {isActive ? 'Ocultar solución' : 'Ver solución'}
+                  </button>
+                </article>
+
+                {showDetailHere && activeId && (
+                  <article className="needs__detail" id="needs-detail" aria-live="polite" ref={detailRef}>
+                    <h3>{options[activeIndex].name}</h3>
+                    <div className="needs__detail-grid">
+                      <div>
+                        <strong>Para quién aplica</strong>
+                        <p>{options[activeIndex].detail.forWho}</p>
+                      </div>
+                      <div>
+                        <strong>Qué necesidad resuelve</strong>
+                        <p>{options[activeIndex].detail.solves}</p>
+                      </div>
+                      <div>
+                        <strong>Qué puede incluir</strong>
+                        <p>{options[activeIndex].detail.includes}</p>
+                      </div>
+                      <div>
+                        <strong>Cuándo conviene</strong>
+                        <p>{options[activeIndex].detail.when}</p>
+                      </div>
+                    </div>
+                    <a href="#formulario-contacto" className="btn-primary">Hablemos de esto</a>
+                  </article>
+                )}
+              </Fragment>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

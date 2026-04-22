@@ -76,7 +76,7 @@ a.contact__channel:hover { border-color: var(--brand-blue); }
 }
 
 .contact__form-wrap {
-  scroll-margin-top: 82px;
+  scroll-margin-top: 62px;
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: 28px;
@@ -179,6 +179,6 @@ a.contact__channel:hover { border-color: var(--brand-blue); }
 @media (max-width: 580px) {
   .contact__form-row { grid-template-columns: 1fr; }
   .contact__form-wrap {
-  scroll-margin-top: 82px; padding: 28px; }
+  scroll-margin-top: 62px; padding: 28px; }
   .contact { padding: 72px 0; }
 }

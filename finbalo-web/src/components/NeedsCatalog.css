@@ -63,7 +63,8 @@
 }
 
 .needs__detail {
-  margin-top: 6px;
+  grid-column: 1 / -1;
+  margin-top: 2px;
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: 22px;
