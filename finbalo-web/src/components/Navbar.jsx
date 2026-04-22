@@ -15,11 +15,40 @@ const links = [
 export default function Navbar({ theme, toggleTheme }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeHref, setActiveHref] = useState('#servicios');
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
+    const sectionIds = links.map(link => link.href.replace('#', ''));
+
+    const updateActiveSection = () => {
+      setScrolled(window.scrollY > 24);
+
+      const checkpoint = window.innerHeight * 0.35;
+      let current = '#servicios';
+
+      sectionIds.forEach(id => {
+        const section = document.getElementById(id);
+        if (!section) return;
+
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= checkpoint && rect.bottom >= checkpoint) {
+          current = `#${id}`;
+        }
+      });
+
+      if (window.scrollY < 120) current = '#servicios';
+
+      setActiveHref(prev => (prev === current ? prev : current));
+    };
+
+    updateActiveSection();
+    window.addEventListener('scroll', updateActiveSection, { passive: true });
+    window.addEventListener('resize', updateActiveSection);
+
+    return () => {
+      window.removeEventListener('scroll', updateActiveSection);
+      window.removeEventListener('resize', updateActiveSection);
+    };
   }, []);
 
   const closeMenu = () => setMenuOpen(false);
@@ -38,11 +67,21 @@ export default function Navbar({ theme, toggleTheme }) {
         <ul className={`navbar__links ${menuOpen ? 'navbar__links--open' : ''}`}>
           {links.map(link => (
             <li key={link.href}>
-              <a href={link.href} onClick={closeMenu}>{link.label}</a>
+              <a
+                href={link.href}
+                className={activeHref === link.href ? 'is-active' : ''}
+                aria-current={activeHref === link.href ? 'page' : undefined}
+                onClick={() => {
+                  setActiveHref(link.href);
+                  closeMenu();
+                }}
+              >
+                {link.label}
+              </a>
             </li>
           ))}
           <li>
-            <a href="#contacto" className="navbar__cta" onClick={closeMenu}>
+            <a href="#formulario-contacto" className="navbar__cta" onClick={closeMenu}>
               Hablemos
             </a>
           </li>
