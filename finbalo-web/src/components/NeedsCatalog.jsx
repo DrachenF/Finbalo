@@ -4,90 +4,98 @@ import './NeedsCatalog.css';
 const options = [
   {
     id: 'web-corporativa',
-    name: 'Página web corporativa',
-    short: 'Para presentar tu empresa con claridad, confianza y enfoque comercial.',
+    name: 'Quiero una web para mi negocio',
+    tech: 'Sitio corporativo',
+    short: 'Para presentar tu empresa con claridad, generar confianza y facilitar contactos comerciales.',
     detail: {
-      forWho: 'Empresas que necesitan una presencia digital seria para vender mejor y transmitir credibilidad.',
-      solves: 'Aclara tu propuesta de valor y mejora la conversión de visitantes en oportunidades reales.',
-      includes: 'Estructura de contenidos, diseño web profesional, secciones clave de servicio, formulario y SEO base.',
-      when: 'Conviene cuando tu web actual no representa bien tu negocio o no está generando contactos de calidad.',
+      forWho: 'Negocios que necesitan una presencia digital profesional para vender mejor y verse confiables.',
+      solves: 'Aterriza tu propuesta de valor y ayuda a convertir visitas en oportunidades reales.',
+      includes: 'Estructura de contenidos, diseño web profesional, secciones de servicio, formulario y SEO base.',
+      when: 'Conviene cuando tu web actual no representa bien tu negocio o no te está generando contactos.',
     },
   },
   {
     id: 'landing-page',
-    name: 'Landing page',
-    short: 'Para campañas, lanzamientos o captar leads con un objetivo puntual.',
+    name: 'Quiero captar más clientes',
+    tech: 'Landing page',
+    short: 'Para campañas o promociones concretas con un mensaje directo y un solo objetivo.',
     detail: {
-      forWho: 'Negocios que están promocionando un servicio, oferta o campaña específica.',
-      solves: 'Evita páginas genéricas y mejora la claridad del mensaje en acciones comerciales concretas.',
-      includes: 'Mensaje principal, prueba de valor del servicio, CTA directo y formulario de contacto optimizado.',
-      when: 'Conviene cuando necesitas resultados rápidos en captación sin rehacer todo tu sitio web.',
+      forWho: 'Empresas que están lanzando un servicio, una campaña o una oferta puntual.',
+      solves: 'Evita páginas confusas y mejora la conversión en acciones comerciales específicas.',
+      includes: 'Mensaje principal, propuesta de valor, CTA claro y formulario optimizado.',
+      when: 'Conviene cuando necesitas resultados rápidos sin rehacer toda tu web.',
     },
   },
   {
     id: 'sistema-interno',
-    name: 'Sistema interno',
-    short: 'Para ordenar operaciones y centralizar procesos del equipo.',
+    name: 'Quiero ordenar mi operación',
+    tech: 'Sistema interno',
+    short: 'Para centralizar procesos del equipo y dejar atrás el desorden operativo.',
     detail: {
-      forWho: 'Empresas que trabajan con procesos manuales, hojas de cálculo dispersas o seguimiento por chat.',
+      forWho: 'Negocios que trabajan con tareas manuales, hojas de cálculo y seguimiento disperso.',
       solves: 'Reduce retrabajos, errores y falta de control en la operación diaria.',
-      includes: 'Módulos según tu proceso, roles por usuario, trazabilidad, reportes y automatizaciones clave.',
-      when: 'Conviene cuando el crecimiento del negocio empieza a superar el control operativo actual.',
+      includes: 'Módulos por proceso, roles de usuario, trazabilidad, reportes y automatizaciones clave.',
+      when: 'Conviene cuando el crecimiento empieza a superar tu forma actual de operar.',
     },
   },
   {
     id: 'dashboard',
-    name: 'Dashboard',
-    short: 'Para visualizar indicadores en tiempo real y decidir con datos.',
+    name: 'Quiero ver ventas y métricas claras',
+    tech: 'Panel de control',
+    short: 'Para tomar decisiones con datos visibles, no por intuición.',
     detail: {
-      forWho: 'Equipos de gestión que necesitan visibilidad clara sobre ventas, operaciones o productividad.',
-      solves: 'Evita decisiones a ciegas y consolida información que hoy está fragmentada.',
-      includes: 'Panel de métricas, filtros, vistas por área y conexión con fuentes de datos existentes.',
-      when: 'Conviene cuando ya tienes datos, pero no un tablero claro para interpretarlos y actuar.',
+      forWho: 'Dueños y equipos que necesitan visibilidad real sobre ventas, operaciones o productividad.',
+      solves: 'Evita decisiones a ciegas y reúne información que hoy está fragmentada.',
+      includes: 'Tablero de indicadores, filtros, vistas por área e integración con tus datos.',
+      when: 'Conviene cuando ya tienes datos pero no una vista clara para actuar rápido.',
     },
   },
   {
     id: 'automatizacion',
-    name: 'Automatización de procesos',
-    short: 'Para reducir tareas repetitivas y acelerar tiempos de respuesta.',
+    name: 'Quiero automatizar tareas repetitivas',
+    tech: 'Automatización de procesos',
+    short: 'Para ahorrar tiempo operativo y responder más rápido sin aumentar carga manual.',
     detail: {
-      forWho: 'Negocios con flujos manuales en reservas, seguimiento comercial, soporte o administración.',
-      solves: 'Disminuye carga operativa y mejora consistencia en tareas críticas del negocio.',
-      includes: 'Flujos automáticos, validaciones, disparadores, alertas y trazabilidad de cada etapa.',
-      when: 'Conviene cuando el equipo invierte demasiado tiempo en tareas que deberían correr solas.',
+      forWho: 'Empresas con procesos repetitivos en reservas, seguimiento comercial, soporte o administración.',
+      solves: 'Disminuye carga operativa y mejora consistencia en tareas clave del negocio.',
+      includes: 'Flujos automáticos, validaciones, alertas y control de cada etapa.',
+      when: 'Conviene cuando tu equipo pierde demasiado tiempo en tareas que pueden automatizarse.',
     },
   },
   {
     id: 'portal-clientes',
-    name: 'Portal de clientes',
-    short: 'Para dar acceso ordenado a información, solicitudes y seguimiento.',
+    name: 'Quiero un área para mis clientes',
+    tech: 'Portal de clientes',
+    short: 'Para dar acceso ordenado a información, solicitudes y seguimiento en un solo lugar.',
     detail: {
-      forWho: 'Empresas que necesitan mejorar atención y autoservicio para clientes o cuentas recurrentes.',
+      forWho: 'Negocios que quieren mejorar atención y autoservicio para clientes frecuentes.',
       solves: 'Reduce fricción en comunicación y mejora la experiencia postventa.',
       includes: 'Acceso por usuario, historial, estado de solicitudes, documentos y panel personalizado.',
-      when: 'Conviene cuando la atención al cliente depende de canales dispersos y poco trazables.',
+      when: 'Conviene cuando la atención depende de canales dispersos y poco trazables.',
     },
   },
   {
     id: 'app-movil',
-    name: 'App móvil',
-    short: 'Para llevar tu servicio al celular con una experiencia directa y práctica.',
+    name: 'Quiero una app para mi servicio',
+    tech: 'Aplicación móvil',
+    short: 'Para estar en el celular de tus usuarios y facilitarles el uso de tu servicio.',
     detail: {
-      forWho: 'Negocios que quieren acercarse más a su cliente o mejorar operación de campo mediante móvil.',
-      solves: 'Facilita acceso, notificaciones y uso frecuente desde cualquier lugar.',
-      includes: 'Flujos principales de la app, autenticación, notificaciones y conexión con backend.',
-      when: 'Conviene cuando la interacción móvil es clave en la experiencia del usuario final.',
+      forWho: 'Empresas que necesitan una experiencia móvil para clientes o equipos en campo.',
+      solves: 'Mejora acceso, continuidad y uso frecuente desde cualquier lugar.',
+      includes: 'Flujos principales de la app, autenticación, notificaciones e integración con backend.',
+      when: 'Conviene cuando el canal móvil es clave en tu experiencia de servicio.',
     },
   },
   {
     id: 'herramienta-operativa',
-    name: 'Herramienta operativa personalizada',
-    short: 'Para resolver una necesidad específica que no cubre un software estándar.',
+    name: 'Quiero una solución hecha para mi negocio',
+    tech: 'Herramienta operativa a medida',
+    short: 'Para resolver una necesidad específica que un software genérico no cubre bien.',
     detail: {
-      forWho: 'Empresas con procesos particulares donde un sistema genérico no encaja bien.',
-      solves: 'Elimina parches y adapta la tecnología al flujo real de tu negocio.',
-      includes: 'Diseño funcional a medida, reglas propias del proceso y evolución por etapas.',
-      when: 'Conviene cuando necesitas precisión operativa y control sin depender de herramientas rígidas.',
+      forWho: 'Negocios con procesos particulares donde una herramienta estándar se queda corta.',
+      solves: 'Elimina parches y adapta la tecnología al flujo real de tu operación.',
+      includes: 'Diseño funcional a medida, reglas de negocio propias y evolución por etapas.',
+      when: 'Conviene cuando necesitas precisión operativa y control sin depender de soluciones rígidas.',
     },
   },
 ];
@@ -146,9 +154,10 @@ export default function NeedsCatalog() {
 
             return (
               <Fragment key={option.id}>
-                <article key={option.id} className={`needs__card ${isActive ? 'needs__card--active' : ''}`}>
+                <article className={`needs__card ${isActive ? 'needs__card--active' : ''}`}>
                   <h3>{option.name}</h3>
                   <p>{option.short}</p>
+                  <span className="needs__tech">{option.tech}</span>
                   <button
                     type="button"
                     className="needs__action"
@@ -156,13 +165,20 @@ export default function NeedsCatalog() {
                     aria-expanded={isActive}
                     aria-controls={isActive ? 'needs-detail' : undefined}
                   >
-                    {isActive ? 'Ocultar solución' : 'Ver solución'}
+                    {isActive ? 'Estás viendo esta opción' : 'Ver solución'}
                   </button>
                 </article>
 
                 {showDetailHere && activeId && (
                   <article className="needs__detail" id="needs-detail" aria-live="polite" ref={detailRef}>
-                    <h3>{options[activeIndex].name}</h3>
+                    <div className="needs__detail-head">
+                      <h3>{options[activeIndex].name}</h3>
+                      <p>
+                        Esta opción está pensada para ayudarte a resolver esta necesidad
+                        sin complejidad innecesaria.
+                      </p>
+                    </div>
+
                     <div className="needs__detail-grid">
                       <div>
                         <strong>Para quién aplica</strong>
