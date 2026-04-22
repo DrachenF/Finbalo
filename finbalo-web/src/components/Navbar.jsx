@@ -5,9 +5,10 @@ import './Navbar.css';
 
 const links = [
   { label: 'Servicios', href: '#servicios' },
-  { label: 'Nosotros', href: '#nosotros' },
+  { label: 'Problemas', href: '#problemas' },
+  { label: 'Soluciones', href: '#soluciones' },
   { label: 'Proceso', href: '#proceso' },
-  { label: 'FAQ', href: '#faq' },
+  { label: 'Tecnologías', href: '#tecnologias' },
   { label: 'Contacto', href: '#contacto' },
 ];
 
@@ -21,10 +22,12 @@ export default function Navbar({ theme, toggleTheme }) {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  const closeMenu = () => setMenuOpen(false);
+
   return (
     <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
       <div className="navbar__inner section-wrap">
-        <a href="#" className="navbar__logo">
+        <a href="#inicio" className="navbar__logo" onClick={closeMenu}>
           <img
             src={theme === 'dark' ? logoDark : logoLight}
             alt="Finbalo"
@@ -33,13 +36,13 @@ export default function Navbar({ theme, toggleTheme }) {
         </a>
 
         <ul className={`navbar__links ${menuOpen ? 'navbar__links--open' : ''}`}>
-          {links.map(l => (
-            <li key={l.href}>
-              <a href={l.href} onClick={() => setMenuOpen(false)}>{l.label}</a>
+          {links.map(link => (
+            <li key={link.href}>
+              <a href={link.href} onClick={closeMenu}>{link.label}</a>
             </li>
           ))}
           <li>
-            <a href="#contacto" className="navbar__cta" onClick={() => setMenuOpen(false)}>
+            <a href="#contacto" className="navbar__cta" onClick={closeMenu}>
               Hablemos
             </a>
           </li>
@@ -53,12 +56,12 @@ export default function Navbar({ theme, toggleTheme }) {
           >
             {theme === 'dark' ? (
               <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                <circle cx="12" cy="12" r="5"/>
-                <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                <circle cx="12" cy="12" r="5" />
+                <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
               </svg>
             ) : (
               <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
               </svg>
             )}
           </button>
@@ -70,11 +73,11 @@ export default function Navbar({ theme, toggleTheme }) {
           >
             {menuOpen ? (
               <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                <path d="M18 6 6 18M6 6l12 12"/>
+                <path d="M18 6 6 18M6 6l12 12" />
               </svg>
             ) : (
               <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                <path d="M4 6h16M4 12h16M4 18h16"/>
+                <path d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             )}
           </button>
