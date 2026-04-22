@@ -288,6 +288,17 @@ Usarlo principalmente en:
 - sustituto del contraste principal entre claro y oscuro
 - excusa para volver la web demasiado brillante, gamer o saturada
 
+### Regla obligatoria para el hero
+En el H1 principal del hero debe mantenerse explícitamente esta lógica visual:
+- frase principal en color principal del tema
+- frase final de énfasis en azul de marca `#3B82F6`
+
+Ejemplo de intención:
+- “Construimos el software” → color principal
+- “que tu negocio necesita.” → `#3B82F6`
+
+Esta regla no es opcional: en refactors de layout o estilo, el énfasis azul del hero debe conservarse.
+
 ### Regla para CTAs
 El CTA principal debe seguir sintiéndose **sobrio, fuerte y premium**.
 Por defecto debe apoyarse más en el contraste oscuro/claro del sistema que en un botón azul permanente.

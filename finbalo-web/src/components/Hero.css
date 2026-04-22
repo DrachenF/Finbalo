@@ -86,7 +86,7 @@
   max-width: 700px;
 }
 
-.hero__title-accent { color: var(--text-secondary); }
+.hero__title-accent { color: #3B82F6; }
 
 .hero__sub {
   font-size: clamp(15px, 1.6vw, 19px);
